@@ -1,0 +1,831 @@
+[{
+    "mass": 5000,
+    "scale": 1.2,
+    "dragFactor": 0.5,
+    "tensorFactor": 0.3,
+    "com": [0, -0.2, 0],
+    "zeroThrustAltitude": 70000,
+    "flapsTravelTime": 1,
+    "flapsSteps": 4,
+    "gearTravelTime": 3,
+    "minRPM": 1000,
+    "maxRPM": 6000,
+    "driveRatio": 0.25,
+    "engineInertia": 0.5,
+    "startupTime": 10,
+    "shutdownTime": 15,
+
+    "startAltitude": 1.3,
+    "startTilt": 0,
+    "minimumSpeed": 150,
+	
+	"autopilot": true,
+	
+    "instruments": {
+      "airspeedJet": {
+        "animations": [
+            {"value": "view", "type": "show", "notEq": "cockpit"}
+        ]
+      },
+      "attitudeJet": {
+        "animations": [
+            {"value": "view", "type": "show", "notEq": "cockpit"}
+        ]
+      },
+      "altitude": {
+        "animations": [
+            {"value": "view", "type": "show", "notEq": "cockpit"}
+        ]
+      },
+      "compass": {
+        "animations": [
+            {"value": "view", "type": "show", "notEq": "cockpit"}
+        ]
+      },
+      "varioJet": {
+        "animations": [
+            {"value": "view", "type": "show", "notEq": "cockpit"}
+        ]
+      },
+      "rpm": {
+        "animations": [
+            {"value": "view", "type": "show", "notEq": "cockpit"}
+        ]
+      },    
+      "brakes": "",
+      "flaps": "",
+      "gear": ""
+    },  	
+	
+    "parts": [
+    
+
+        {
+            "name": "model",
+            "type": "root",
+		"model": "/models/aircraft/zlin/body.glb",
+		"position": [0, 0, 0],
+                "scale": [1.1, 1.2, 1]
+        },
+
+	{
+        "name": "body",
+        "type": "frame",
+		"position": [0, 0, 0],
+        "buoyancy": 20000,
+        "collisionPoints": [
+			[0 , -0.6 , 0.7],
+			[0, -3.8, 1.55],
+			[-4.38, 0.6, -1],
+			[-4.38, -0.6, -1],
+			[4.38, 0.6, -1],
+			[4.38, -0.6, -1],
+			[-1.75, -3.60, 0.50],
+			[1.75, -3.60, 0.50],
+			[0, 2.4, -0.5],
+                        [0, -4, -0.5]
+		]
+    },
+   
+
+    {
+        "name": "bodyfoil",
+        "type": "airfoil",
+		"position": [0, -0.6, 0],
+        "area": 3.5,
+        "forceDirection": "X",
+        "points": {
+			"forceSourcePoint": [0, 0, 0]
+		},
+		"stalls": true
+    },
+
+    {
+        "name": "noseConeOne",
+        "type": "none",
+        "model": "/models/aircraft/tom/canopy.glb",
+        "position": [0, 4.75, -0.05],
+        "rotation": [-90, 0, 0],
+        "scale": [0.025, 0.0225, 0.125]
+    },
+
+    {
+        "name": "noseConeTwo",
+        "type": "none",
+        "model": "/models/aircraft/tom/canopy.glb",
+        "position": [0, 3.1, -0.05],
+        "rotation": [90, 0, 0],
+        "scale": [0.005, 0.005, 0.05]
+    },
+
+    {
+        "name": "leftwing",
+        "type": "airfoil",
+       	"position": null,
+        "area": 5,
+        "forceDirection": "Z",        
+        "points": {
+			"forceSourcePoint": [-0.5, 0, -0.4]
+		},
+        "rotation": [0, -2.8, 0],
+        "stalls": true        
+    },
+	
+
+    {
+        "name": "leftwing2",
+        "type": "airfoil",
+       	"position": null,
+        "area": 4,
+        "forceDirection": "Z",        
+        "points": {
+			"forceSourcePoint": [-4, 0, -0.4]
+		},
+        "rotation": [0, -2.8, 0],
+        "zeroLiftIncidence": 20,
+        "stalls": true        
+    },	
+	
+
+    {
+        "name": "rightwing",
+        "type": "airfoil",
+		"position": null,
+        "area": 5,
+        "forceDirection": "Z",
+        "points": {
+        	"forceSourcePoint": [0.5, 0, -0.4]
+        },
+        "rotation": [0, 2.8, 0],
+        "stalls": true        
+    },
+	
+    {
+        "name": "rightwing2",
+        "type": "airfoil",
+		"position": null,
+        "area": 4,
+        "forceDirection": "Z",
+        "points": {
+        	"forceSourcePoint": [4, 0, -0.4]
+        },
+        "rotation": [0, 2.8, 0],
+        "zeroLiftIncidence": 20,
+        "stalls": true        
+    },	
+	
+
+    {
+        "name": "horizontalstab",
+        "type": "airfoil",
+		"position": null,
+        "area": 1.5,
+        "forceDirection": "Z",
+        "points": {
+        	"forceSourcePoint": [0, -3.3, 0.4]
+        },
+        "rotation": [2, 0, 0],
+        "stalls": true
+    }, 
+	
+
+    {
+        "name": "verticalstab",
+        "type": "airfoil",
+		"position": null,
+        "area": 0.5,
+        "forceDirection": "X",
+        "points": {
+        	"forceSourcePoint": [0, -3.4, 0.5]
+        },
+		"stalls": true      
+    }, 		
+
+    {
+        "name": "aftWingFillerRight",
+        "type": "none",
+		"model": "/models/aircraft/zlin/aileronleft.glb",
+		"position": [1.05, -0.4, -0.375],
+                "scale": [0.6, 0.5, 1.1],
+		"rotation": [0, -2, 184]
+    }, 
+
+    {
+        "name": "aftWingFillerLeft",
+        "type": "none",
+		"model": "/models/aircraft/zlin/aileronright.glb",
+		"position": [-1.05, -0.4, -0.375],
+                "scale": [0.6, 0.5, 1.1],
+		"rotation": [0, 2, -184]
+    },
+
+    {
+        "name": "leadEdgeLeft",
+        "type": "none", 
+        "model": "/models/aircraft/cessna/flapright.glb",
+        "position": [0, 1.55, -0.4],
+        "scale": [2.65, 0.5, 0.75],
+        "rotation": [0, 1.75, 170],
+        "animations": [
+            {"type": "rotate", "axis": "X", "value": "flapsPosition", "ratio": -3}
+                ]
+    },
+
+    {
+        "name": "leadEdgeRight",
+        "type": "none", 
+        "model": "/models/aircraft/cessna/flapleft.glb",
+        "position": [0, 1.55, -0.4],
+        "scale": [2.65, 0.5, 0.75],
+        "rotation": [0, -1.75, 190],
+        "animations": [
+            {"type": "rotate", "axis": "X", "value": "flapsPosition", "ratio": -3}
+                ]
+    },
+
+    {
+        "name": "forwardWingFillerLeft",
+        "type": "none", 
+        "model": "/models/aircraft/cessna/flapleft.glb",
+        "position": [0, 1.55, -0.4],
+        "scale": [2.65, 2, 1],
+        "rotation": [0, -1.75, -10]
+    },
+
+    {
+        "name": "forwardWingFillerRight",
+        "type": "none", 
+        "model": "/models/aircraft/cessna/flapright.glb",
+        "position": [0, 1.55, -0.4],
+        "scale": [2.65, 2, 1],
+        "rotation": [0, 1.75, 10]
+    },
+
+    {
+        "name": "flapsleft",
+        "type": "airfoil",
+		"model": "/models/aircraft/zlin/aileronleft.glb",
+		"position": [-1.05, -0.4, -0.375],
+                "scale": [0.6, 0.5, 1],
+        "area": 0.75,
+        "forceDirection": "Z",
+        "points": {
+			"forceSourcePoint": [0, 0, 0]
+		},
+        "animations": [
+        	{"type": "rotate", "axis": "X", "value": "flapsPosition", "ratio": -10}
+        ],
+		"rotation": [0, -2, -4]
+    }, 
+	
+
+    {
+        "name": "flapsright",
+        "type": "airfoil",
+		"model": "/models/aircraft/zlin/aileronright.glb",
+		"position": [1.05, -0.4, -0.375],
+                "scale": [0.6, 0.5, 1],
+        "area": 0.75,
+        "forceDirection": "Z",
+        "points": {
+			"forceSourcePoint": [0, 0, 0]
+		},
+        "animations": [
+	        {"type": "rotate", "axis": "X", "value": "flapsPosition", "ratio": -10}
+	    ],
+		"rotation": [0, 2, 4]
+    },
+
+    {
+        "name": "aileronleft",
+        "type": "airfoil",
+		"model": "/models/aircraft/zlin/aileronleft.glb",
+		"position": [-3.08, -0.225, -0.32],
+                "scale": [0.5, 1.15, 1],
+        "area": 0.75,
+        "forceDirection": "Z",
+        "points": {
+			"forceSourcePoint": [-1.5, -0.2, 0]
+		},
+        "animations": [
+        	{"type": "rotate", "axis": "X", "value": "roll", "ratio": -30}
+        ],
+		"rotation": [0, -2, -5]
+    }, 
+	
+
+    {
+        "name": "aileronright",
+        "type": "airfoil",
+		"model": "/models/aircraft/zlin/aileronright.glb",
+		"position": [3.08, -0.225, -0.32],
+                "scale": [0.5, 1.15, 1],
+        "area": 0.75,
+        "forceDirection": "Z",
+        "points": {
+			"forceSourcePoint": [1.5, -0.2, 0]
+		},
+        "animations": [
+	        {"type": "rotate", "axis": "X", "value": "roll", "ratio": 30}
+	    ],
+		"rotation": [0, 2, 5]
+    }, 
+
+
+    {
+        "name": "elevator",
+        "type": "airfoil",
+		"model": "/models/aircraft/zlin/elevator.glb",
+		"position": [0, -4.296, 0.48],
+                "scale": [1, 0.9, 1],
+        "area": 1,
+        "forceDirection": "Z",
+        "points": {
+			"forceSourcePoint": [0, -0.3, 0]
+		},
+        "animations": [
+        	{"type": "rotate", "axis": "X", "value": "pitch", "ratio": 25}
+        ]
+    },
+
+
+    {
+        "name": "rudder",
+        "type": "airfoil",
+		"model": "/models/aircraft/zlin/rudder.glb",
+		"position": [0, -4.218, -0.005],
+        "area": 1,
+        "forceDirection": "X",
+        "points": {
+			"forceSourcePoint": [0, -0.2, 0.4]
+		},
+        "animations": [
+        	{"type": "rotate", "axis": "Z", "value": "yaw", "ratio": -30}
+        ],
+		"rotation": [-6.5, 0, 0]
+    },
+
+
+    {
+        "name": "frontGearRetractionParent",
+        "position": [0, 4, -0.2],
+        "type": "none",
+        "animations": [
+            {"type": "rotate", "axis": "X", "value": "gearPosition", "ratio": 100}
+               ]
+    },
+
+    {
+        "name": "frontGearPole",
+        "type": "none", 
+        "parent": "frontgear",
+        "model": "/models/aircraft/a380/reversedeflector.glb",
+        "position": [0, 0, 0],
+        "scale": [0.025, 0.4, 0.025],
+        "rotation": [90, 0, 0]
+    },
+
+    {
+        "name": "frontgear",
+        "type": "wheel",
+        "parent": "frontGearRetractionParent",
+		"model": "/models/aircraft/cessna/frontgear.glb",
+        "position": [0, 0, -0.6],
+        "scale": [1.1, 1.1, 1.1],
+        "animations": [
+        	{"type": "rotate", "axis": "Z", "value": "yaw", "ratio": 30}
+        ],
+        "collisionPoints": [
+			[0, 0, -0.6]
+		],
+		"rotation": [-8, 0, 0],
+        "suspension": {
+        	"stiffness": 70,
+        	"damping": 8
+        }
+    },
+
+    {
+        "name": "frontwheel",
+        "type": "none",
+        "model": "/models/aircraft/cessna/wheel.glb",
+        "position": [0, 0, -0.3],
+        "scale": [1.25, 1.25, 1.25],
+        "parent": "frontgear",
+        "animations": [
+        	{"type": "rotate", "axis": "X", "value": "frontgearRotation", "ratio": 2}
+        ]
+    },
+
+    {
+        "name": "leftGearRetractionParent",
+        "position": [-1.25, 0, -0.4],
+        "type": "none",
+        "animations": [
+            {"type": "rotate", "axis": "Y", "value": "gearPosition", "ratio": 90}
+               ]
+    },
+
+    {
+        "name": "leftGearPole",
+        "type": "none", 
+        "parent": "leftgear",
+        "model": "/models/aircraft/a380/reversedeflector.glb",
+        "position": [0, 0, 0],
+        "scale": [0.025, 0.3, 0.025],
+        "rotation": [90, 0, 0]
+    },
+
+    {
+        "name": "leftgear",
+        "type": "wheel",
+        "parent": "leftGearRetractionParent",
+		"model": "/models/aircraft/cessna/frontgear.glb",
+        "position": [0, 0, -0.4],
+        "scale": [1.1, 1.1, 1.1],
+        "collisionPoints": [
+			[0, 0, -0.6]
+		],
+		"rotation": [0, 0, 0],
+        "suspension": {
+        	"stiffness": 70,
+        	"damping": 8
+        }
+    },
+
+    {
+        "name": "leftwheel",
+        "type": "none",
+        "model": "/models/aircraft/cessna/wheel.glb",
+        "position": [0, 0, -0.3],
+        "scale": [1.25, 1.25, 1.25],
+        "parent": "leftgear",
+        "animations": [
+        	{"type": "rotate", "axis": "X", "value": "frontgearRotation", "ratio": 2}
+        ]
+    },
+
+    {
+        "name": "rightGearRetractionParent",
+        "position": [1.25, 0, -0.4],
+        "type": "none",
+        "animations": [
+            {"type": "rotate", "axis": "Y", "value": "gearPosition", "ratio": -90}
+               ]
+    },
+
+    {
+        "name": "rightGearPole",
+        "type": "none", 
+        "parent": "rightgear",
+        "model": "/models/aircraft/a380/reversedeflector.glb",
+        "position": [0, 0, 0],
+        "scale": [0.025, 0.3, 0.025],
+        "rotation": [90, 0, 0]
+    },
+
+    {
+        "name": "rightgear",
+        "type": "wheel",
+        "parent": "rightGearRetractionParent",
+		"model": "/models/aircraft/cessna/frontgear.glb",
+        "position": [0, 0, -0.4],
+        "scale": [1.1, 1.1, 1.1],
+        "collisionPoints": [
+			[0, 0, -0.6]
+		],
+		"rotation": [0, 0, 0],
+        "suspension": {
+        	"stiffness": 70,
+        	"damping": 8
+        }
+    },
+
+    {
+        "name": "rightwheel",
+        "type": "none",
+        "model": "/models/aircraft/cessna/wheel.glb",
+        "position": [0, 0, -0.3],
+        "scale": [1.25, 1.25, 1.25],
+        "parent": "rightgear",
+        "animations": [
+        	{"type": "rotate", "axis": "X", "value": "frontgearRotation", "ratio": 2}
+        ]
+    },
+
+        {
+            "name": "geardrag",
+            "type": "airfoil",
+            "position": [0, 0, 0],
+            "liftFactor": 0,
+            "dragFactor": 0.4,
+            "forceDirection": "Z",
+            "points": {
+                "forceSourcePoint": [0, 1, 0]
+            },
+            "animations": [
+                {"type": "rotate", "frame": "parent", "axis": "X", "value": "gearPosition", "ratio": -90}
+            ],
+            "rotation": [90, 0, 0]
+        },
+
+
+    {
+         "name": "frontEngineTubes",
+         "type": "none",
+         "model": "/models/aircraft/md11/reversedeflectors.glb",
+         "position": [0, 1.5, -0.75],
+         "scale": [0.5, 1, 0.5],
+         "rotation": [180, 0, 0]
+    },
+
+    {
+         "name": "aftEngineTubes",
+         "type": "none",
+         "model": "/models/aircraft/md11/reversedeflectors.glb",
+         "position": [0, -0.5, -0.75],
+         "scale": [0.5, 0.75, 0.45],
+         "rotation": [0, 0, 0]
+    },
+
+    {
+         "name": "leftEngineSpinner",
+         "type": "none",
+         "model": "/models/aircraft/md11/mainfan.glb",
+         "position": [-1.75, 1.5, -0.75],
+         "scale": [0.6, 1, 0.6],
+         "animations": [
+             {"type": "rotate", "axis": "Y", "value": "prop", "ratio": 1}
+         ]
+    },
+
+    {
+         "name": "rightEngineSpinner",
+         "type": "none",
+         "model": "/models/aircraft/md11/mainfan.glb",
+         "position": [1.75, 1.5, -0.75],
+         "scale": [0.6, 1, 0.6],
+         "animations": [
+             {"type": "rotate", "axis": "Y", "value": "prop", "ratio": 1}
+         ]
+    },
+
+    {
+         "name": "leftEngine",
+         "type": "engine",
+         "thrust": 20000,
+         "forceDirection": "Y",
+         "contrail": true,
+         "model": "/models/aircraft/a380/reversedeflector.glb",
+         "position": [-1.75, 1.5, -0.75],
+         "scale": [0.18, 1.25, 0.18],
+         "points": {
+             "forceSourcePoint": [0, -1, 0.5],
+             "contrailAnchor": [0, -5, 0]
+         }
+     },
+
+     {
+         "name": "rightEngine",
+         "type": "engine",
+         "thrust": 20000,
+         "forceDirection": "Y",
+         "contrail": true,
+         "model": "/models/aircraft/a380/reversedeflector.glb",
+         "position": [1.75, 1.5, -0.75],
+         "scale": [0.18, 1.25, 0.18],
+         "points": {
+             "forceSourcePoint": [0, -1, 0.5],
+             "contrailAnchor": [0, -5, 0]
+         }
+     },
+
+
+
+    {
+        "name": "canopyglass",
+        "type": "none",
+        "model": "/models/aircraft/premium/pilatus/canopy.gltf",
+        "position": [0, 0.25, -0.625],
+        "noCastShadows": true,
+        "noReceiveShadows": true
+    },
+    {
+        "name": "windshield",
+        "type": "none",
+        "model": "/models/aircraft/premium/pilatus/windshield.gltf",
+        "position": [0, 0.1, -1.05],
+        "scale": [1, 1.5, 1.3],
+        "noCastShadows": true,
+        "noReceiveShadows": true
+    },
+    {
+         "name": "forwardCockpitFrame",
+         "type": "none",
+         "model": "/models/aircraft/a380/reversedeflector.glb",
+         "position": [0, 0.5, 0.25],
+         "scale": [0.25, 0.1, 0.3],
+         "rotation": [180, 0, 0]
+    },
+    {
+        "name": "leftCockpitBar",
+        "type": "none", 
+        "parent": "forwardCockpitFrame",
+        "model": "/models/aircraft/a380/reversedeflector.glb",
+        "position": [-0.25, 0, -0.45],
+        "scale": [0.01, 0.5, 0.01],
+        "rotation": [30, 0, 0]
+    },
+    {
+        "name": "rightCockpitBar",
+        "type": "none", 
+        "parent": "forwardCockpitFrame",
+        "model": "/models/aircraft/a380/reversedeflector.glb",
+        "position": [0.25, 0, -0.45],
+        "scale": [0.01, 0.5, 0.01],
+        "rotation": [30, 0, 0]
+    },
+
+    {
+      "name": "stick",
+      "type": "frame",
+      "model": "/models/aircraft/premium/a380/cockpit/spoilerslever.glb",
+      "position": [0.05, -0.25, -0.1],
+      "scale": [2.5, 2.5, 2.5],
+      "animations": [
+        {"type": "rotate", "axis": "X", "value": "pitch", "ratio": -30},
+        {"type": "rotate", "axis": "Y", "value": "roll", "ratio": -30}
+      ]
+    },
+
+        {
+            "name": "vertical_speed",
+            "include": "3d-vario-high",
+            "type": "none",
+            "position": [0.01, -0.01, 0.315],
+            "rotation": [0, 0, 0],
+            "scale": [0.9, 0.9, 0.9]
+        },
+        {
+            "name": "heading",
+            "include": "3d-compass",
+            "type": "none",
+            "position": [-0.1243, -0.01, 0.193],
+            "rotation": [0, 0, 0],
+            "scale": [0.9, 0.9, 0.9]
+        },
+        {
+            "name": "attitude",
+            "include": "3d-attitude-jet",
+            "type": "none",
+            "position": [-0.1265, -0.01, 0.31],
+            "rotation": [0, 0, 0],
+            "scale": [1.1, 1.1, 1.1]
+        },
+        {
+            "name": "airspeed",
+            "include": "3d-ias-high",
+            "type": "none",
+            "position": [-0.25, -0.01, 0.3],
+            "rotation": [0, 0, 0],
+            "scale": [0.9, 0.9, 0.9]
+        },
+        {
+            "name": "altitude",
+            "include": "3d-altimeter",
+            "type": "none",
+            "position": [-0.22, -0.01, 0.196],
+            "rotation": [0, 0, 0],
+            "scale": [0.9, 0.9, 0.9]
+        },
+        {
+            "name": "rpm1",
+            "include": "3d-rpm",
+            "type": "none",
+            "position": [0.13, -0.01, 0.3],
+            "rotation": [9.5, 0, 0],
+            "scale": [1, 1, 1]
+        },
+
+        {
+            "name": "rpm2",
+            "include": "3d-rpm",
+            "type": "none",
+            "position": [0.25, -0.01, 0.3],
+            "rotation": [9.5, 0, 0],
+            "scale": [1, 1, 1]
+        }
+
+    ],
+	
+
+    "contactProperties": {
+        "wheel": {
+        	"frictionCoef": 4,
+        	"dynamicFriction": 0.01,
+        	"rollingFriction": 0.0001,
+
+            "damping": 1
+        },
+        "frame": {
+        	"frictionCoef": 2,
+        	"dynamicFriction": 0.01,
+        
+            "damping": 1
+        },
+	    "airfoil": {
+        	"frictionCoef": 2,
+        	"dynamicFriction": 0.01,
+
+            "damping": 1
+        }
+    },
+    
+    "soundSet": "player",
+    
+    "sounds": [
+    	{
+    		"id": "rpm1",
+    		"file": "sounds/phenom/rpm0.ogg",
+    		"effects": {
+    			"volume": {"value": "rpm", "ramp": [800, 950, 2500, 3500]},
+    			"pitch": {"value": "rpm", "ramp": [0, 10000, 10000, 10000], "ratio": 1, "offset": 1}
+			}
+    	},
+    	{
+    		"id": "rpm2",
+    		"file": "sounds/jet/rpm2.ogg",
+    		"effects": {
+    			"volume": {"value": "rpm", "ramp": [1000, 2000, 3000, 4000]},
+    			"pitch": {"value": "rpm", "ramp": [0, 10000, 10000, 10000], "ratio": 1, "offset": 1}
+			}
+    	},
+    	{
+    		"id": "rpm3",
+    		"file": "sounds/jet/rpm3.ogg",
+    		"effects": {
+    			"volume": {"value": "rpm", "ramp": [2000, 3500, 10000, 10000]},
+    			"pitch": {"value": "rpm", "ramp": [0, 10000, 10000, 10000], "ratio": 1, "offset": 1}
+			}
+    	},
+    	{
+    		"id": "rpm4",
+    		"file": "sounds/jet/rpm4.ogg",
+    		"effects": {
+    			"volume": {"value": "rpm", "ramp": [4000, 5500, 6000, 6000]},
+    			"pitch": {"value": "rpm", "ramp": [0, 10000, 10000, 10000], "ratio": 1, "offset": 1}
+    		}
+    	},
+
+    	{
+    		"id": "rolling",
+    		"file": "sounds/tyres/rolling2.ogg",
+    		"fadeDuration": 500,
+    		"effects": {
+    			"volume": {"value": "rollingSpeed", "ramp": [0, 50, 1000, 1000]}
+    		}
+    	},
+
+    	{
+    		"id": "touch",
+    		"file": "sounds/tyres/touch1.ogg",
+    		"effects": {
+    			"start": {"value": "maxAngularVRatio", "gt": 300}
+			}
+    	},
+
+    	{
+    		"id": "startup",
+    		"file": "sounds/jet/startup.ogg"
+    	},
+    	{
+    		"id": "shutdown",
+    		"file": "sounds/jet/shutdown.ogg"
+    	}	
+    ],
+    
+    "cameras": {
+        "follow": {
+        	"distance": 20
+    	},
+        "cockpit": {
+        	"position": [0, -0.65, 0.5],
+        	"orientation": [0, -6, 0]
+        },
+        "Wheels": {
+            "position": [0, -2, -0.9],
+            "orientation": [0, 0, 0]
+        },
+        "Wing": {
+            "position": [-6, -0.3, 0.4],
+            "orientation": [90, 0, 0]
+        },
+        "Top": {
+            "position": [0, -4, 2],
+            "orientation": [0, -20, 0]
+        }
+    },    
+    
+    "shadowURL": "models/aircraft/zlin/shadow.png",
+    "shadowBox": [5, 5.5]
+}]
