@@ -385,7 +385,7 @@
 },
 {
 		"name": "qe2",
-		"location": [50.76575873754467, -1.1927880445846175, 0],
+		"position": [50.76575873754467, -1.1927880445846175, 0],
 		"url": "https://www.geo-fs.com/backend/aircraft/repository/Flighter%20Jet_310810_2198/QE2model.glb",
 		"collisionRadius": 400,
 		"collisionTriangles": [
@@ -479,7 +479,7 @@
 	},
 	{
 		"name": "asog",
-		"location": [28.409661, -80.582244, 0],
+		"position": [28.409661, -80.582244, 0],
 		"url": "https://129066664-566439557718181686.preview.editmysite.com/uploads/1/2/9/0/129066664/asog.glb",
 		"collisionRadius": 400,
 		"collisionTriangles": [
@@ -518,7 +518,7 @@
 	},
 	{
 		"name": "padB",
-		"location": [25.996676197774043, -97.158153935453, 0],
+		"position": [25.996676197774043, -97.158153935453, 0],
 		"url": "none",
 		"collisionRadius": 400,
 		"collisionTriangles": [
@@ -556,7 +556,7 @@
 	},
 	{
 		"name": "interpid",
-		"location": [40.76683642677340, -74.0029338852795, 0],
+		"position": [40.76683642677340, -74.0029338852795, 0],
 		"url": "../../../../models/objects/carrier/carrier.gltf",
 		"collisionRadius": 400,
 		"collisionTriangles": [
