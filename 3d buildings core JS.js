@@ -1,3 +1,4 @@
+function run3dbuildings() {
 var maxDistance = 5;
 var objs;
 var collsionObj;
@@ -433,4 +434,5 @@ objects.init();
 //geofs.flyTo([50.76619260070758, -1.192606945462554,0,180])
 }())
 }, 100)
-}();
+}()
+};
