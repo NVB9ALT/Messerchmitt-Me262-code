@@ -1,4 +1,4 @@
-function run3dbuildings() {
+function runBuildings() {
 var maxDistance = 5;
 var objs;
 var collsionObj;
