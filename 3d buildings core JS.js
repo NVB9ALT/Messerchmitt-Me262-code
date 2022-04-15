@@ -209,7 +209,7 @@ addonToggle.setAttribute("tabindex", "0");
 addonToggle.setAttribute("dataUpgraded", ",MaterialSwitch,MaterialRipple");
 addonToggle.innerHTML = '<input type="checkbox" id="airports" class="mdl-switch__input" data-gespref="geofs.preferences.addons"><span class="mdl-switch__label">Enable Miscelaneous</span>';
 dropdownSettings2.appendChild(addonToggle);
-addonToggle.addEventListener("click", toggleAddons); 
+addonToggle.addEventListener("click", toggleAddons);
 
 
 /*
@@ -357,7 +357,7 @@ geofs.savePreferences();
 }
 citiesOn = preferences.cities;
 if (citiesOn == null){
-preferences.cities = true;
+preferences.cities = false;
 landmarksOn = preferences.cities;
 geofs.savePreferences();
 }
