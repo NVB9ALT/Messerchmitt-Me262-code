@@ -211,6 +211,7 @@ addonToggle.innerHTML = '<input type="checkbox" id="airports" class="mdl-switch_
 dropdownSettings2.appendChild(addonToggle);
 addonToggle.addEventListener("click", toggleAddons); 
 
+
 /*
 //Spawning Range Slider
 let rangeSlider = document.createElement("div");
@@ -368,7 +369,7 @@ geofs.savePreferences();
 }
 levelOfDetail = preferences.levelOfDetail;
 if (levelOfDetail == null){
-preferences.levelOfDetail = 5;
+preferences.levelOfDetail = 2;
 addonsOn = preferences.levelOfDetail;
 geofs.savePreferences();
 }
