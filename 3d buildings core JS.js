@@ -210,6 +210,8 @@ addonToggle.setAttribute("dataUpgraded", ",MaterialSwitch,MaterialRipple");
 addonToggle.innerHTML = '<input type="checkbox" id="airports" class="mdl-switch__input" data-gespref="geofs.preferences.addons"><span class="mdl-switch__label">Enable Miscelaneous</span>';
 dropdownSettings2.appendChild(addonToggle);
 addonToggle.addEventListener("click", toggleAddons); 
+
+/*
 //Spawning Range Slider
 let rangeSlider = document.createElement("div");
 rangeSlider.setAttribute("class", "slider");
@@ -247,6 +249,7 @@ lodSlider.appendChild(lodSliderLabel);
 let lodDescription = document.createElement("legend");
 lodDescription.innerHTML = "Level of Detail: 5 - All Buidlings loaded, worse performance; 1 - Only low detail Buildings are loaded, better performance";
 dropdownSettings2.appendChild(lodDescription);
+*/
 
 //Push Button
 let dropdownButtons = document.createElement("fieldset");
