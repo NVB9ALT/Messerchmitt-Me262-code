@@ -1,3 +1,4 @@
+function runBuildings() {
 var maxDistance = 5;
 var objs;
 var collsionObj;
@@ -434,3 +435,4 @@ objects.init();
 }())
 }, 100)
 }();
+}
