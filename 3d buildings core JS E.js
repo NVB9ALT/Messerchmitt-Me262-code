@@ -116,11 +116,9 @@ var credit = modelJson.credit;
 
 //Check if all of the values are valid or if any need to be set to defaults
 if (url == null){
-console.log("Failed to Spawn, No url provided")
 return
 }
 if (position == null){
-console.log("Failed")
 return "Failed To Spawn, No position provided";
 }
 if (scale == null){
@@ -133,14 +131,12 @@ rotation = [0,0,0];
 var model = geofs.api.loadModel(url);
 geofs.api.setModelPositionOrientationAndScale(model,position,rotation,scale);
 if (credit != null){
-console.log("Model credit: "+credit);
 }
 return model
 }
 //Deleting Function
 function deleteModel(model){
 geofs.api.destroyModel(model);
-console.log("Deleted Object")
 }
 //Function To check if something is in the rendering Range
 function isInRange(objectPosision, maxDistance){
@@ -293,7 +289,7 @@ airportToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effe
 }
 else{
 airportToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked")
-console.log("Airports On")
+
 }
 geofs.preferences.airports = !airportState;
 airportsOn = geofs.preferences.airports;
@@ -304,8 +300,7 @@ if (state == true){
 landmarkToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded");
 }
 else{
-landmarkToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked")
-console.log("Landmarks On")
+landmarkToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked");
 }
 geofs.preferences.landmarks = !state;
 landmarksOn = geofs.preferences.landmarks;
@@ -317,7 +312,7 @@ citiesToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effec
 }
 else{
 citiesToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked")
-console.log("cities On")
+
 }
 geofs.preferences.cities = !state;
 citiesOn = geofs.preferences.cities;
@@ -329,13 +324,13 @@ addonToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect
 }
 else{
 addonToggle.setAttribute("class", "mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded is-checked")
-console.log("addons On")
+
 }
 geofs.preferences.addons = !state;
 addonsOn = geofs.preferences.addons;
 }
 function updateLod(value){
-console.log("update");
+
 geofs.preferences.levelOfDetail = vaule;
 }
 
@@ -357,7 +352,7 @@ geofs.savePreferences();
 }
 citiesOn = preferences.cities;
 if (citiesOn == null){
-preferences.cities = false;
+preferences.cities = true;
 landmarksOn = preferences.cities;
 geofs.savePreferences();
 }
